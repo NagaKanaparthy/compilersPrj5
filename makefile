@@ -1,7 +1,9 @@
 sql: sql.tab.c lex.yy.c
-	echo "Documentation in README.md"
 	cc sql.tab.c -o sql
+	@echo "------------------------------------------"
+	@echo "Documentation in README.md file"
+	@echo "------------------------------------------"
 sql.tab.c:sql.y
-	bison sql.y
+	bison -vd sql.y
 lex.yy.c: sql.l
-	flex sql.l
+	flex -l sql.l
