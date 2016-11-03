@@ -3,8 +3,8 @@
 # To extract the files from this archive, save it to some FILE, remove
 # everything before the `#!/bin/sh' line above, then type `sh FILE'.
 #
-lock_dir=_sh31903
-# Made on 2016-11-02 17:13 EDT by <n00803515@osprey.unfcsd.unf.edu>.
+lock_dir=_sh01722
+# Made on 2016-11-03 01:05 EDT by <n00803515@osprey.unfcsd.unf.edu>.
 # Source directory was `/home/15/n00803515/compilersPrj5'.
 #
 # Existing files will *not* be overwritten, unless `-c' is specified.
@@ -12,7 +12,7 @@ lock_dir=_sh31903
 # This shar contains:
 # length mode       name
 # ------ ---------- ------------------------------------------
-#    254 -rw-r--r-- makefile
+#    253 -rw-r--r-- makefile
 #   1580 -rw-r--r-- README.md
 #   1311 -rw-r--r-- sql.l
 #   2862 -rw-r--r-- sql.y
@@ -102,7 +102,7 @@ else
 ${echo} 'x - extracting makefile (text)'
   sed 's/^X//' << 'SHAR_EOF' > 'makefile' &&
 sql: sql.tab.c lex.yy.c
-X	cc sql.tab.c -o sql
+X	cc sql.tab.c -o p5
 X	@echo "------------------------------------------"
 X	@echo "Documentation in README.md file"
 X	@echo "------------------------------------------"
@@ -111,7 +111,7 @@ X	bison -vd sql.y
 lex.yy.c: sql.l
 X	flex -l sql.l
 SHAR_EOF
-  (set 20 16 11 02 16 54 01 'makefile'; eval "$shar_touch") &&
+  (set 20 16 11 03 01 03 23 'makefile'; eval "$shar_touch") &&
   chmod 0644 'makefile'
 if test $? -ne 0
 then ${echo} 'restore of makefile failed'
@@ -120,11 +120,11 @@ fi
   then (
        ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'makefile: MD5 check failed'
        ) << \SHAR_EOF
-498586bf937fd88adbc6bf9788a4a338  makefile
+5694ae2cae1cc0cea9cfc538f194a70a  makefile
 SHAR_EOF
   else
-test `LC_ALL=C wc -c < 'makefile'` -ne 254 && \
-  ${echo} 'restoration warning:  size of makefile is not 254'
+test `LC_ALL=C wc -c < 'makefile'` -ne 253 && \
+  ${echo} 'restoration warning:  size of makefile is not 253'
   fi
 fi
 # ============= README.md ==============

@@ -1,5 +1,5 @@
 sql: sql.tab.c lex.yy.c
-	cc sql.tab.c -o sql
+	cc sql.tab.c -o p5
 	@echo "------------------------------------------"
 	@echo "Documentation in README.md file"
 	@echo "------------------------------------------"
