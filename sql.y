@@ -11,26 +11,27 @@ extern yylex();
 %token TIMES JOIN DIVIDEBY WHERE RENAME AS S P SP PRDCT CUST ORDERS STATUS
 %token val
 %%
-Program     :   expression{ printf("ACCEPT"); };
+Program     :   expression{ printf("ACCEPT\n"); };
 
-expression  :   oneRelationExpression { printf("expression one relation expression"); };
-                | twoRelationExpression { printf("expression two relation expression"); };
+expression  :   oneRelationExpression {};
+                | twoRelationExpression {};
 
-oneRelationExpression : renaming { printf("one relation expression renaming\n"); };
-                        | restriction { printf("one relation expression restriction\n"); };
-                        | projection { printf("one relation expression projection\n"); };
+oneRelationExpression : renaming {};
+                        | restriction {};
+                        | projection {}; 
 
-renaming :  term RENAME attribute AS attribute { printf("renaming\n"); };
+renaming :  term RENAME attribute AS attribute {};
 
-term :  relation{ printf("term\n"); };
-        | LeftPer expression RightPer { };
+term :  relation {};
+        | LeftPer expression RightPer {};
 
-restriction :   term WHERE comparison { };
+restriction :   term WHERE comparison {};
 
 projection :    term {}; 
                 | term LeftBracket attributeCommalist RightBracket {};
 
-attributeCommalist :   attribute { }; | attribute Comma attributeCommalist
+attributeCommalist :	attribute { }; 
+			| attribute Comma attributeCommalist {};
 
 twoRelationExpression : projection binaryOperation expression {};
 
@@ -53,33 +54,31 @@ compare :   LessThan {};
 number :    val {};
             | val number {};
 
-attribute : CNO { printf("ATTRIBUTE\n"); };
-            | CITY { printf("ATTRIBUTE\n"); };
-            | CNAME { printf("ATTRIBUTE\n"); };
-            | SNO { printf("ATTRIBUTE\n"); };
-            | PNO { printf("ATTRIBUTE\n"); };
-            | TQTY { printf("ATTRIBUTE\n"); };
-            | SNAME { printf("ATTRIBUTE\n"); };
-            | QUOTA { printf("ATTRIBUTE\n"); };
-            | COST { printf("ATTRIBUTE\n"); };
-            | AVQTY { printf("ATTRIBUTE\n"); };
-            | SNum { printf("ATTRIBUTE\n"); };
-            | STATUS { printf("ATTRIBUTE\n"); };
-            | PNum { printf("ATTRIBUTE\n"); };
-            | COLOR { printf("ATTRIBUTE\n"); };
-            | WEIGHT { printf("ATTRIBUTE\n"); };
-            | QTY { printf("ATTRIBUTE\n"); };
+attribute : CNO {};
+            | CITY {};
+            | CNAME {};
+            | SNO {};
+            | PNO {};
+            | TQTY {};
+            | SNAME {};
+            | QUOTA {};
+            | COST {};
+            | AVQTY {};
+            | SNum {};
+            | STATUS {};
+            | PNum {};
+            | COLOR {};
+            | WEIGHT {};
+            | QTY {};
 
-relation :  S {}; | P {}; | SP {}; | PRDCT {}; | CUST {}; | ORDERS {};
+relation :	S {};
+		| P {}; 
+		| SP {}; 
+		| PRDCT {}; 
+		| CUST {}; 
+		| ORDERS {};
 %%
 #include "lex.yy.c"
 main(){
     yyparse();
-}
-yyerror(char* error){
-    printf(": error from yyerror\n");
-    printf("%s\n", error);
-}
-yywrap(){
-    printf("in yywarp\n");
 }

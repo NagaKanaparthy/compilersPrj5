@@ -59,3 +59,9 @@ Digit		[0-9]
 "ORDERS"		return ORDERS;
 "STATUS"		return STATUS;
 %%
+yyerror(char* error){
+    printf("REJECT\n");
+}
+yywrap(){
+}
+
